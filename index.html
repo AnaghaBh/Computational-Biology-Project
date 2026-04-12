@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet, Chemotaxis, and Suicidal Antibiotic Attraction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-kicker">Computational Biology Project</span>
+          <strong>Diet and Health</strong>
+        </div>
+        <div class="top-links">
+          <a href="#report">Report</a>
+          <a href="#model">Model</a>
+          <a href="#steps">Workflow</a>
+          <a href="#lab">Interactive Lab</a>
+          <a href="#game">Game</a>
+        </div>
+      </nav>
+
+      <div class="hero-grid hero-grid-single">
+        <section class="hero-copy">
+          <p class="eyebrow">Bacterial movement under competing cues</p>
+          <h1>From Keller-Segel chemotaxis to antibiotic-driven self-sacrifice.</h1>
+          <p class="hero-text">
+            This website explains our project as a story: bacteria chase food, reshape their
+            chemical environment, and may even move toward lethal antibiotic gradients. We start
+            with Keller-Segel, test it against the Phan et al. dataset, then build our own Step 5 extension.
+          </p>
+          <div class="hero-actions">
+            <a class="button ghost" href="#report">Open Report Layout</a>
+            <a class="button primary" href="#lab">Open Interactive Lab</a>
+            <a class="button ghost" href="#game">Play Game</a>
+          </div>
+          <p class="hero-justification">justify connection to diet and health</p>
+        </section>
+      </div>
+    </header>
+
+    <main>
+      <section id="report" class="section report-section">
+        <div class="section-head">
+          <p class="eyebrow">Report structure</p>
+          <h2>1500-word project layout</h2>
+        </div>
+        <div class="report-grid">
+          <article class="report-card">
+            <h3>Introduction</h3>
+            <p>placeholder</p>
+          </article>
+
+          <article class="report-card">
+            <h3>Methods</h3>
+            <p>placeholder</p>
+          </article>
+
+          <article class="report-card">
+            <h3>Results and Discussion</h3>
+            <p>placeholder</p>
+          </article>
+
+          <article class="report-card references-card">
+            <h3>References</h3>
+            <p>placeholder</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="model" class="section intro-section">
+        <div class="section-head">
+          <p class="eyebrow">Why this model matters</p>
+          <h2>The project in one picture</h2>
+        </div>
+        <div class="story-grid">
+          <article class="story-card">
+            <h3>1. Original Keller-Segel</h3>
+            <p>
+              Bacteria are treated as a density field. They diffuse randomly but also move up
+              chemical gradients they perceive as beneficial.
+            </p>
+          </article>
+          <article class="story-card">
+            <h3>2. Phan et al. correction</h3>
+            <p>
+              We used the Phan et al. dataset to validate the model and test where the original
+              Keller-Segel description breaks down at high density.
+            </p>
+          </article>
+          <article class="story-card">
+            <h3>3. Our extension</h3>
+            <p>
+              We add an antibiotic field and ask what happens when bacteria experience both food
+              attraction and a harmful but attractive signal.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section equation-section">
+        <div class="section-head">
+          <p class="eyebrow">Equation breakdown</p>
+          <h2>Each term has a biological meaning</h2>
+        </div>
+        <div class="equation-grid">
+          <article class="term-card">
+            <h3>Random spreading</h3>
+            <p><code>D<sub>b</sub>∇²B</code></p>
+            <p>Even without signals, bacteria wander. This smooths out sharp peaks.</p>
+          </article>
+          <article class="term-card">
+            <h3>Food attraction</h3>
+            <p><code>-∇·(χ<sub>A</sub>B∇Φ<sub>A</sub>)</code></p>
+            <p>Bacteria drift toward richer food regions, which can concentrate the population.</p>
+          </article>
+          <article class="term-card">
+            <h3>Antibiotic attraction</h3>
+            <p><code>-∇·(χ<sub>C</sub>B∇Φ<sub>C</sub>)</code></p>
+            <p>Our extension asks what if bacteria also move toward a harmful signal.</p>
+          </article>
+          <article class="term-card">
+            <h3>Birth and death</h3>
+            <p><code>+ αB - μ(C)B</code></p>
+            <p>Growth adds cells. High antibiotic raises the death rate and can destroy clusters.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="steps" class="section steps-section">
+        <div class="section-head">
+          <p class="eyebrow">Project workflow</p>
+          <h2>How the whole project fits together</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-card">
+            <span class="step-no">Step 1</span>
+            <h3>Visualise the dataset</h3>
+            <p>Load bacterial and aspartate profiles from the Phan et al. processed data.</p>
+          </article>
+          <article class="timeline-card">
+            <span class="step-no">Step 2</span>
+            <h3>Test the original KS model</h3>
+            <p>Evaluate how well the standard chemotaxis equations explain the measured profiles.</p>
+          </article>
+          <article class="timeline-card">
+            <span class="step-no">Step 3</span>
+            <h3>Add density dependence</h3>
+            <p>Let chemotaxis and attractant consumption weaken at high density, following Phan et al.</p>
+          </article>
+          <article class="timeline-card">
+            <span class="step-no">Step 4</span>
+            <h3>Forward simulation</h3>
+            <p>Run the corrected PDE model and compare the evolving wave to experiment.</p>
+          </article>
+          <article class="timeline-card highlight">
+            <span class="step-no">Step 5</span>
+            <h3>Antibiotic extension</h3>
+            <p>Introduce a second signal field so food attraction competes with antibiotic-driven mortality.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section media-section">
+        <div class="section-head">
+          <p class="eyebrow">Existing simulation asset</p>
+          <h2>KS-based particle-field animation</h2>
+        </div>
+        <div class="media-grid">
+          <div class="media-frame">
+            <img src="figures/step5_2d_chemotaxis.gif" alt="2D chemotaxis animation with bacteria, food, and antibiotic">
+          </div>
+          <div class="media-copy">
+            <p>
+              The animation on the left comes from the Step 5 particle-field model. Food is shown
+              in green, antibiotic in purple, and bacteria as moving dots.
+            </p>
+            <p>
+              The website below adds an interactive browser-based playground so we can tune the
+              strengths of food attraction, antibiotic attraction, and antibiotic death live.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="lab" class="section lab-section">
+        <div class="section-head">
+          <p class="eyebrow">Interactive lab</p>
+          <h2>Play with the chemotaxis system in the browser</h2>
+        </div>
+        <div class="lab-layout">
+          <aside class="control-panel">
+            <div class="control-group">
+              <label for="foodStrength">Food attraction <span id="foodStrengthValue">1.00</span></label>
+              <input id="foodStrength" type="range" min="0" max="2" step="0.05" value="1">
+            </div>
+            <div class="control-group">
+              <label for="antibioticStrength">Antibiotic attraction <span id="antibioticStrengthValue">1.00</span></label>
+              <input id="antibioticStrength" type="range" min="0" max="2" step="0.05" value="1">
+            </div>
+            <div class="control-group">
+              <label for="deathStrength">Antibiotic death <span id="deathStrengthValue">1.00</span></label>
+              <input id="deathStrength" type="range" min="0" max="2" step="0.05" value="1">
+            </div>
+            <div class="control-group">
+              <label for="micLevel">MIC contour <span id="micLevelValue">0.70</span></label>
+              <input id="micLevel" type="range" min="0.2" max="1.5" step="0.05" value="0.7">
+            </div>
+            <div class="control-group">
+              <label for="particleCount">Initial bacteria <span id="particleCountValue">220</span></label>
+              <input id="particleCount" type="range" min="80" max="420" step="10" value="220">
+            </div>
+            <div class="button-row">
+              <button id="resetButton" class="button primary">Reset Simulation</button>
+              <button id="pauseButton" class="button ghost">Pause</button>
+            </div>
+            <div class="formula-note">
+              <h3>Browser model</h3>
+              <p>
+                Particles follow random walk plus chemotactic drift from
+                <code>χ<sub>A</sub>∇Φ<sub>A</sub></code> and
+                <code>χ<sub>C</sub>∇Φ<sub>C</sub></code>.
+              </p>
+            </div>
+          </aside>
+
+          <div class="canvas-wrap">
+            <canvas id="chemotaxisCanvas" width="900" height="580"></canvas>
+            <div class="canvas-overlay">
+              <div class="overlay-card">
+                <span>Food field</span>
+                <strong>green glow</strong>
+              </div>
+              <div class="overlay-card">
+                <span>Antibiotic field</span>
+                <strong>purple glow</strong>
+              </div>
+              <div class="overlay-card">
+                <span>MIC</span>
+                <strong>white contour</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="game" class="section game-section">
+        <div class="section-head">
+          <p class="eyebrow">Interactive mini-game</p>
+          <h2>Bacteria chemotaxis game</h2>
+        </div>
+        <div class="game-layout">
+          <div class="game-copy">
+            <p>
+              This game is a lighter, more playful interaction than the full KS playground. Click
+              inside the canvas to drop food. The bacteria first wander randomly, then begin to
+              bias their motion toward the food source.
+            </p>
+            <p>
+              It is not a full PDE solver, but it still reflects three core KS ideas: diffusion,
+              delayed gradient sensing, and density-dependent sensitivity.
+            </p>
+            <div class="control-group compact">
+              <label for="density">Density <span id="densityValue">25</span></label>
+              <input type="range" id="density" min="5" max="80" value="25">
+            </div>
+          </div>
+          <div class="game-canvas-wrap">
+            <canvas id="gameCanvas" width="800" height="400"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="site.js"></script>
+</body>
+</html>
