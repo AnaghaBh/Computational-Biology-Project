@@ -376,3 +376,164 @@ button.ghost {
     position: static;
   }
 }
+
+/* ── Results section ─────────────────────────────────────────────────────── */
+
+.results-section {
+  padding: 32px 0 48px;
+}
+
+.result-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--line);
+}
+
+.result-block:last-of-type {
+  border-bottom: none;
+}
+
+.result-block-flip {
+  direction: rtl;
+}
+
+.result-block-flip > * {
+  direction: ltr;
+}
+
+.result-fig img {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(17, 32, 25, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.result-text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.result-label {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.result-text h3 {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+  line-height: 1.15;
+}
+
+.result-text p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.72;
+  color: var(--muted);
+}
+
+.result-fig-inline {
+  margin-top: 8px;
+}
+
+.result-fig-inline img {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(17, 32, 25, 0.08);
+  box-shadow: 0 12px 32px rgba(17, 32, 25, 0.09);
+}
+
+.fig-caption {
+  margin: 8px 0 0 !important;
+  font-size: 0.84rem !important;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Summary table */
+.results-summary {
+  margin-top: 16px;
+  padding: 28px 32px 32px;
+  border-radius: 24px;
+  background: var(--panel-strong);
+  border: 1px solid rgba(17, 32, 25, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.results-summary h3 {
+  margin: 0 0 20px;
+  font-family: "Fraunces", serif;
+  font-size: 1.6rem;
+}
+
+.summary-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.summary-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-header {
+  background: rgba(17, 32, 25, 0.05);
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.summary-row > span {
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.summary-row > span:first-child {
+  border-right: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.step-badge {
+  font-weight: 600;
+  font-size: 0.88rem !important;
+}
+
+@media (max-width: 980px) {
+  .result-block,
+  .result-block-flip {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+
+  .summary-row {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-row > span:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+}
