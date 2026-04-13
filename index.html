@@ -3,51 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bacterial Chemotaxis — Diet &amp; Health Project</title>
+  <title>Diet, Chemotaxis, and Suicidal Antibiotic Attraction</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
-
-  <!-- ── Sticky nav ─────────────────────────────────────────────────────── -->
-  <nav class="topbar">
-    <div class="brand">
-      <span class="brand-kicker">Computational Biology</span>
-      <strong>Diet &amp; Health</strong>
-    </div>
-    <div class="nav-links">
-      <a class="nav-btn" href="#report">Report</a>
-      <a class="nav-btn" href="#results">Results</a>
-      <a class="nav-btn" href="#model">Model</a>
-      <a class="nav-btn" href="#steps">Workflow</a>
-      <a class="nav-btn" href="#lab">Interactive Lab</a>
-      <a class="nav-btn" href="#game">Game</a>
-    </div>
-  </nav>
-
   <div class="page-shell">
-
-    <!-- ── Hero ──────────────────────────────────────────────────────────── -->
     <header class="hero">
-      <p class="eyebrow">Bacterial movement under competing cues</p>
-      <h1>From food-chasing to antibiotic-driven self-sacrifice</h1>
-      <p class="hero-sub">
-        Bacteria don't just wander — they follow chemical signals. This project builds a
-        mathematical model of that behaviour, tests it against real experimental data, and
-        asks what happens when bacteria encounter an antibiotic they are attracted to.
-      </p>
-      <div class="hero-actions">
-        <a class="btn" href="#report">Read the Report</a>
-        <a class="btn btn-outline" href="#results">See Results</a>
-        <a class="btn btn-outline" href="#lab">Interactive Lab</a>
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-kicker">Computational Biology Project</span>
+          <strong>Diet and Health</strong>
+        </div>
+        <div class="top-links">
+          <a href="#report">Report</a>
+          <a href="#results">Results</a>
+          <a href="#model">Model</a>
+          <a href="#steps">Workflow</a>
+          <a href="#lab">Interactive Lab</a>
+          <a href="#game">Game</a>
+        </div>
+      </nav>
+
+      <div class="hero-grid hero-grid-single">
+        <section class="hero-copy">
+          <p class="eyebrow">Bacterial movement under competing cues</p>
+          <h1>From Keller-Segel chemotaxis to antibiotic-driven self-sacrifice.</h1>
+          <p class="hero-text">
+            This website explains our project as a story: bacteria chase food, reshape their
+            chemical environment, and may even move toward lethal antibiotic gradients. We start
+            with Keller-Segel, test it against the Phan et al. dataset, then build our own Step 5 extension.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#report">Read the Report</a>
+            <a class="button primary" href="#results">See Results</a>
+            <a class="button primary" href="#lab">Interactive Lab</a>
+            <a class="button primary" href="#game">Play Game</a>
+          </div>
+        </section>
       </div>
     </header>
 
     <main>
 
-      <!-- ── Report ─────────────────────────────────────────────────────── -->
+      <!-- ── Report ──────────────────────────────────────────────────────── -->
       <section id="report" class="section">
         <div class="section-head">
           <p class="eyebrow">Project report</p>
@@ -55,7 +56,6 @@
         </div>
 
         <div class="report-body">
-
           <div class="report-toc">
             <p class="toc-label">Contents</p>
             <a href="#intro">Introduction</a>
@@ -69,35 +69,20 @@
             <article id="intro" class="report-section">
               <h3>Introduction</h3>
               <p>
-                Bacteria do not move randomly. They sense chemical gradients in their environment
-                and bias their movement toward nutrients and away from toxins — a process called
-                chemotaxis. Understanding chemotaxis matters for human health because it governs
-                how gut bacteria colonise the intestine, how pathogens spread through tissue, and
-                how bacterial communities respond to antibiotics.
+                Chemotaxis is a fundamental mechanism by which motile bacteria navigate their environment in response to chemical gradients. In Escherichia coli, this process helps bacteria move towards nutrients they need to survive (chemoattractants) and away from harmful conditions (chemorepellants) (The Molecular Switch | Princeton University Press, 2020). At the single-cell level, chemotaxis begins when external chemicals bind to transmembrane chemoreceptors called methyl-accepting chemotaxis proteins (MCPs), which are clustered with the histidine kinase CheA and the coupling protein CheW. In the absence of an attractant or when attractant levels are falling, the receptors keep CheA active. CheA then autophosphorylates and transfers its phosphate to CheY. Phosphorylated CheY (CheY-P) diffuses to the flagellar motor, binds the switch complex, and increases clockwise rotation, which disrupts the flagellar bundle and causes the cell to tumble. When attractant concentration rises, receptor activity suppresses CheA, so less CheY is phosphorylated. When CheY-P levels fall, the flagella rotate mainly counterclockwise, the bundle stays intact, and the cell runs smoothly. Because the bacterium is too small to compare concentrations along its body length, it uses temporal sensing: it effectively compares the present signal with the signal a few moments earlier, so runs are prolonged when conditions improve, and tumbles increase when conditions worsen. Adaptation is achieved by receptor methylation. CheR continuously adds methyl groups to the receptors, which increases receptor output and tends to restore CheA activity, while CheB removes methyl groups; importantly, CheB itself is activated by phosphorylation through CheA, so when CheA activity is high, CheB-P rises and demethylates receptors, and when CheA activity is low, CheB activity falls and methylation accumulates. This negative-feedback loop gradually resets receptor activity back toward its baseline after a change in stimulus, allowing the cell to stop responding to a constant background level and instead remain sensitive to new changes in concentration (Hadjidemetriou et al., 2022). 
+
               </p>
               <p>
-                The Keller-Segel (KS) model is the standard mathematical description of
-                chemotaxis. It treats the bacterial population as a density field that diffuses
-                randomly but also drifts up chemical gradients. The model was originally developed
-                for dilute populations, but real biological systems often involve very high
-                bacterial densities — for example in the gut, in biofilms, or during infection.
+                At the population scale, chemotaxis is commonly described by the Keller–Segel model, which treats bacterial density as a continuous field subject to diffusion and directed movement along chemical gradients (Keller & Segel, 1971). This framework has been successful in capturing travelling bands and aggregation phenomena. However, it assumes constant chemotactic sensitivity and neglects density-dependent interactions. 
               </p>
               <p>
-                This project uses the dataset from Phan et al. (2024), who measured bacterial
-                travelling waves in a microfluidic channel at four different initial densities.
-                We first test whether the original KS model can explain the data, then introduce
-                a density-dependent correction that fixes its failure at high density. Finally,
-                motivated by recent work on suicidal chemotaxis (Oliveira et al. 2022), we extend
-                the model to include an antibiotic field and ask what happens when bacteria are
-                attracted toward a lethal signal.
+                Phan et al. (2024) have shown how bacterial responses to attractant gradients become nonlinear at high densities due to crowding, receptor saturation, and resource depletion. These findings motivate modifications to the classical Keller-Segel model.
               </p>
               <p>
-                The connection to diet and health is direct: the gut microbiome is a dense
-                bacterial community in which chemotaxis shapes spatial organisation, nutrient
-                competition, and the response to antimicrobial compounds. A model that correctly
-                describes density-dependent chemotaxis is therefore a step toward understanding
-                how diet-driven changes in gut bacterial density affect community behaviour and
-                antibiotic susceptibility.
+                An additional variable is introduced by the presence of antibiotics. Oliveira et al. (2022) showed that bacteria actively move toward antibiotics rather than away from them. This behaviour occurs only when the antibiotic concentration exceeds a threshold (the minimum inhibitory concentration or MIC), and the movement bias increases with the gradient strength. Eventually, cells that migrate into high-antibiotic regions lose viability, leading to what is called “suicidal chemotaxis”. 
+              </p>
+              <p>
+                Our project aims to develop a mathematical model that integrates classical chemotaxis modelling, density-dependent corrections, and an antibiotic-driven extension.
               </p>
             </article>
 
@@ -110,8 +95,7 @@
                 bacterial density profiles B(z) and aspartate concentration profiles A(z) for
                 four density groups: LOW (~0.1–0.3 OD), MID (~3.0–3.3 OD), HIGH (~6.2–6.7 OD),
                 and EXT (~7.6–8.3 OD). The coordinate z is in the co-moving frame, so z = 0
-                always marks the peak of the bacterial band. All profiles were measured in a
-                microfluidic channel 6 mm long.
+                always marks the peak of the bacterial band.
               </p>
 
               <h4>The Keller-Segel model</h4>
@@ -125,12 +109,11 @@
                 <p>Φ = ln(1 + A / K<sub>i</sub>)</p>
               </div>
               <p>
-                The first equation says bacteria spread by diffusion (D<sub>b</sub> term), drift
-                up the perceived food gradient (χ term), and grow at rate α. The second equation
-                says aspartate diffuses (D<sub>A</sub> term) and is consumed by bacteria following
-                Michaelis-Menten kinetics. The perceived signal Φ is logarithmic, reflecting
-                Weber's law: bacteria are more sensitive to gradients when background concentration
-                is low.
+                The first equation says bacteria spread by diffusion, drift up the perceived food
+                gradient (χ term), and grow at rate α. The second equation says aspartate diffuses
+                and is consumed by bacteria following Michaelis-Menten kinetics. The perceived
+                signal Φ is logarithmic, reflecting Weber's law: bacteria are more sensitive to
+                gradients when background concentration is low.
               </p>
 
               <h4>Density-dependent correction</h4>
@@ -144,13 +127,13 @@
               <p>
                 This means crowded bacteria respond less strongly to the food gradient. The
                 parameter B<sub>th</sub> ≈ 8.8 OD is the density at which sensitivity is halved.
-                At low density (B ≪ B<sub>th</sub>) the model reduces to the original KS equation.
+                At low density the model reduces to the original KS equation.
               </p>
 
               <h4>Antibiotic extension</h4>
               <p>
                 We added a third variable C(z,t) for antibiotic concentration and a second
-                chemotaxis term pointing toward the antibiotic:
+                chemotaxis term pointing toward the antibiotic, motivated by Oliveira et al. (2022):
               </p>
               <div class="equation-block">
                 <p>∂B/∂t = D<sub>b</sub> ∂²B/∂z² − ∂/∂z [χ<sub>A</sub>(B) · B · ∂Φ<sub>A</sub>/∂z] − ∂/∂z [χ<sub>C</sub>(B,C) · B · ∂Φ<sub>C</sub>/∂z] + α B − μ(C) B</p>
@@ -158,37 +141,127 @@
               </div>
               <p>
                 The killing rate μ(C) activates above the minimum inhibitory concentration (MIC).
-                The antibiotic chemotaxis term χ<sub>C</sub> is motivated by Oliveira et al.
-                (2022), who showed that <em>Pseudomonas aeruginosa</em> actively swims toward
-                antibiotics. We applied this behaviour to our E. coli model as a theoretical
-                exploration.
               </p>
 
               <h4>Numerical implementation</h4>
               <p>
                 All PDEs were solved using explicit Euler time-stepping with central finite
-                differences in space. The experimental profiles were interpolated onto a coarse
-                grid of 300 points (dz ≈ 0.02 mm) for numerical stability. The time step was
-                chosen to satisfy the stability condition dt &lt; dz² / (2D). No-flux boundary
-                conditions were applied at both ends of the channel.
+                differences in space on a 300-point grid (dz ≈ 0.02 mm). The time step satisfied
+                the stability condition dt &lt; dz² / (2D). No-flux boundary conditions were
+                applied at both ends of the channel.
               </p>
             </article>
 
             <article id="report-results" class="report-section">
               <h3>Results and Discussion</h3>
+
+              <!-- ── Figures ── -->
+
+              <div class="result-block" style="margin-top:40px;">
+                <div class="result-fig">
+                  <img src="fig_ks_toy_band.png" alt="KS model toy band illustration">
+                </div>
+                <div class="result-text">
+                  <p class="result-label">Figure 1 — Model behaviour</p>
+                  <h3>The KS model produces a self-sustaining travelling band</h3>
+                  <p>Before testing against real data, we first checked that the model produces the right kind of behaviour. Bacteria diffuse randomly but also drift up the food gradient. As they eat the food behind them and chase fresh food ahead, a moving band forms naturally.</p>
+                  <p>This plot shows the model running from a simple starting condition. The bacterial peak (blue) moves to the right over time, leaving a depleted food zone (orange) behind it.</p>
+                </div>
+              </div>
+
+              <div class="result-block result-block-flip">
+                <div class="result-fig">
+                  <img src="fig_ks_terms.png" alt="KS equation terms breakdown">
+                </div>
+                <div class="result-text">
+                  <p class="result-label">Figure 2 — Equation terms</p>
+                  <h3>Each part of the equation has a clear biological role</h3>
+                  <p>This plot shows the three terms in the bacteria equation evaluated separately on the measured data. The diffusion term (spreading) is always small. The chemotaxis term (food-chasing) is the dominant driver of the wave. The growth term adds a small background increase.</p>
+                  <p>Understanding which term matters most tells us where to focus when the model fails at high density — it is the chemotaxis term that needs correcting.</p>
+                </div>
+              </div>
+
+              <div class="result-block">
+                <div class="result-fig">
+                  <img src="fig2_ks_vs_data.png" alt="Experimental wave profiles across four density groups">
+                </div>
+                <div class="result-text">
+                  <p class="result-label">Figure 3 — Experimental data</p>
+                  <h3>The real data: band shape changes dramatically with density</h3>
+                  <p>Bacteria were placed in a channel filled with aspartate. They swam toward it, ate it, and formed a travelling band. We measured the shape of this band at four different starting densities: LOW, MID, HIGH, and EXT.</p>
+                  <p>At LOW density the band is narrow and sharp. At HIGH and EXT density the band is much wider and flatter. The band still moves at roughly the same speed (~0.28 mm/min), but its shape is very different. This is the key observation we need our model to explain.</p>
+                </div>
+              </div>
+
+              <div class="result-block result-block-flip">
+                <div class="result-fig">
+                  <img src="fig2_ks_overlay.png" alt="Original KS model overlay on data">
+                </div>
+                <div class="result-text">
+                  <p class="result-label">Figure 4 — Original model vs data</p>
+                  <h3>The standard model works at low density but gets it wrong at high density</h3>
+                  <p>We fitted the original KS model to the LOW density data and it matched well. But when we used the same settings for HIGH and EXT density, the model predicted a narrow sharp band — not the wide flat one we actually see. The model assumes bacteria always chase the food gradient just as hard, no matter how crowded they are.</p>
+                  <div class="result-fig-inline">
+                    <img src="fig2_ks_roc.png" alt="Rate-of-change diagnostic">
+                    <p class="fig-caption">This check compares what the model predicts should be happening to what is actually measured. At HIGH and EXT density the model is far too large — confirming it over-drives the chemotaxis.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="result-block">
+                <div class="result-fig">
+                  <img src="fig3_comparison.png" alt="Modified KS model comparison">
+                </div>
+                <div class="result-text">
+                  <p class="result-label">Figure 5 — Fixed model</p>
+                  <h3>One small change fixes the model for all four densities</h3>
+                  <p>We let the food-chasing strength decrease when bacteria are crowded. This single change fixes the model at all four densities at once. The wide flat band at high density is now reproduced, and the narrow sharp band at low density is still correct.</p>
+                  <div class="result-fig-inline">
+                    <img src="fig3_modified_ks_roc.png" alt="Rate-of-change diagnostic for modified model">
+                    <p class="fig-caption">With the fix applied, the model now matches the measured rate of change at all densities.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="result-block result-block-flip">
+                <div class="result-fig">
+                  <img src="fig4_simulation.png" alt="Forward PDE simulation snapshots">
+                </div>
+                <div class="result-text">
+                  <p class="result-label">Figure 6 — Forward simulation</p>
+                  <h3>The model correctly predicts how the band moves over time</h3>
+                  <p>We took the real measured profiles as a starting point and ran the model forward for five minutes. The bacterial band moved to the right at about 0.28 mm/min — matching the speed seen in the experiment. Behind the band, the food gets eaten up. Ahead of the band, fresh food remains.</p>
+                </div>
+              </div>
+
+              <div class="result-block">
+                <div class="result-fig">
+                  <img src="fig_step5_antibiotic_extension.png" alt="Antibiotic extension">
+                </div>
+                <div class="result-text">
+                  <p class="result-label">Figure 7 — Antibiotic extension</p>
+                  <h3>Bacteria attracted toward antibiotics get killed — but dense colonies are harder to disrupt</h3>
+                  <p>We added an antibiotic source ahead of the bacterial band. Below a certain concentration the band moves normally. Above that level, bacteria at the front swim into the antibiotic zone and get killed. The band slows down and starts to break apart.</p>
+                  <p>At high density the bacteria are less attracted to the antibiotic — because crowding already reduces how strongly they respond to any gradient. A dense colony is actually harder to disrupt this way.</p>
+                  <div class="result-fig-inline">
+                    <img src="step5_antibiotic_animation.gif" alt="Antibiotic disruption animation">
+                    <p class="fig-caption">The bacterial band moves right until it hits the antibiotic zone, where bacteria are killed and the band breaks down.</p>
+                  </div>
+                </div>
+              </div>
+
+        
               <p>
-                The original KS model with constant χ fitted the LOW density data well but
-                predicted a band that was too narrow and sharp at HIGH and EXT density. This
-                failure was confirmed by a rate-of-change diagnostic: the model's right-hand side
-                was much larger than the measured ∂B/∂t at high density, showing that the model
-                was over-driving the chemotaxis term.
+                The standard model works at low density but predicts a band that is too narrow and
+                sharp at high density. The rate-of-change diagnostic confirmed the problem: the
+                model's right-hand side was much larger than the measured ∂B/∂t at high density,
+                showing the model was over-driving the chemotaxis term.
               </p>
               <p>
-                Replacing constant χ with the density-dependent form χ(B) = χ<sub>0</sub> /
-                (1 + B/B<sub>th</sub>) fixed the model at all four density groups simultaneously.
-                The wide flat band at high density was reproduced, and the narrow sharp band at
-                low density was preserved. This is a strong result: one additional parameter
-                (B<sub>th</sub>) unifies the behaviour across a 50-fold range of bacterial density.
+                Replacing constant χ with χ(B) = χ<sub>0</sub> / (1 + B/B<sub>th</sub>) fixed
+                the model at all four density groups simultaneously. The wide flat band at high
+                density was reproduced, and the narrow sharp band at low density was preserved.
+                One additional parameter unifies behaviour across a 50-fold range of density.
               </p>
               <p>
                 Forward simulation from the real experimental initial conditions reproduced the
@@ -199,256 +272,176 @@
               <p>
                 The antibiotic extension showed that bacteria attracted toward an antibiotic above
                 the MIC enter the killing zone and are eliminated, disrupting the travelling wave.
-                An important finding was that dense colonies were harder to disrupt: because
-                crowding already reduces χ(B), high-density bacteria are less strongly attracted
-                to the antibiotic gradient and fewer enter the killing zone. This suggests that
-                the density-dependent suppression of chemotaxis, originally identified as a
-                response to crowding in the food gradient, may also inadvertently protect
-                high-density colonies from suicidal antibiotic attraction.
+                Importantly, dense colonies were harder to disrupt: because crowding already
+                reduces χ(B), high-density bacteria are less strongly attracted to the antibiotic
+                gradient and fewer enter the killing zone. The density-dependent suppression of
+                chemotaxis may therefore inadvertently protect high-density colonies from suicidal
+                antibiotic attraction.
               </p>
               <p>
                 These results have implications for gut health. The gut microbiome operates at
                 very high bacterial densities, where our model predicts that chemotactic responses
-                are substantially reduced. This could mean that gut bacteria are less responsive
-                to nutrient gradients than dilute laboratory cultures suggest, and that
-                antibiotic-driven disruption of chemotaxis may be density-dependent — potentially
-                explaining why high-density biofilms are harder to treat.
+                are substantially reduced. This could mean that antibiotic-driven disruption of
+                chemotaxis is density-dependent — potentially explaining why high-density biofilms
+                are harder to treat.
               </p>
+
+              <!-- Summary table -->
+              <div class="summary-box">
+                <h3>Summary of findings</h3>
+                <div class="summary-table">
+                  <div class="summary-row summary-header">
+                    <span>Result</span><span>Key finding</span>
+                  </div>
+                  <div class="summary-row">
+                    <span>1 — Model behaviour</span>
+                    <span>The KS model naturally produces a self-sustaining travelling band. The chemotaxis term is the dominant driver.</span>
+                  </div>
+                  <div class="summary-row">
+                    <span>2 — Data</span>
+                    <span>The bacterial band gets wider and flatter as density increases, but moves at the same speed in all cases.</span>
+                  </div>
+                  <div class="summary-row">
+                    <span>3 — Original model</span>
+                    <span>The standard model works at low density but predicts a band that is too narrow and sharp at high density.</span>
+                  </div>
+                  <div class="summary-row">
+                    <span>4 — Fixed model</span>
+                    <span>Making bacteria respond less strongly to food when crowded fixes the model for all four densities at once.</span>
+                  </div>
+                  <div class="summary-row">
+                    <span>5 — Simulation</span>
+                    <span>Running the fixed model forward in time reproduces the correct band shape and movement speed.</span>
+                  </div>
+                  <div class="summary-row">
+                    <span>6 — Antibiotics</span>
+                    <span>When bacteria swim toward antibiotics they get killed and the band breaks down. Dense colonies are harder to disrupt because crowding already reduces their response to any gradient.</span>
+                  </div>
+                </div>
+              </div>
+
             </article>
 
             <article id="refs" class="report-section">
               <h3>References</h3>
               <ol class="ref-list">
-                <li>
-                  Phan, T. V. et al. (2024). Bacterial density-dependent chemotaxis in a
-                  microfluidic channel. <em>Physical Review Letters</em>.
-                </li>
-                <li>
-                  Oliveira, N. M. et al. (2022). Suicidal chemotaxis in bacteria.
-                  <em>Nature Communications</em>, 13, 7608.
-                </li>
-                <li>
-                  Granato, E. T. &amp; Foster, K. R. (2020). The evolution of mass cell suicide
-                  in bacterial warfare. <em>Current Biology</em>, 30(15), 2836–2843.
-                </li>
-                <li>
-                  Keller, E. F. &amp; Segel, L. A. (1971). Model for chemotaxis.
-                  <em>Journal of Theoretical Biology</em>, 30(2), 225–234.
-                </li>
+                <li>Phan, T. V. et al. (2024). Bacterial density-dependent chemotaxis in a microfluidic channel. <em>Physical Review Letters</em>.</li>
+                <li>Oliveira, N. M. et al. (2022). Suicidal chemotaxis in bacteria. <em>Nature Communications</em>, 13, 7608.</li>
+                <li>Granato, E. T. &amp; Foster, K. R. (2020). The evolution of mass cell suicide in bacterial warfare. <em>Current Biology</em>, 30(15), 2836–2843.</li>
+                <li>Keller, E. F. &amp; Segel, L. A. (1971). Model for chemotaxis. <em>Journal of Theoretical Biology</em>, 30(2), 225–234.</li>
               </ol>
             </article>
 
-          </div><!-- end report-content -->
-        </div><!-- end report-body -->
-      </section>
-
-      <!-- ── Results ────────────────────────────────────────────────────── -->
-      <section id="results" class="section">
-        <div class="section-head">
-          <p class="eyebrow">Results</p>
-          <h2>What the model tells us</h2>
-        </div>
-
-        <div class="result-block">
-          <div class="result-fig">
-            <img src="fig2_ks_vs_data.png" alt="Experimental wave profiles across four density groups">
-          </div>
-          <div class="result-text">
-            <p class="result-label">Result 1 — Experimental data</p>
-            <h3>Bacteria form a moving band — but the shape changes with density</h3>
-            <p>Bacteria were placed in a channel filled with aspartate (a nutrient they like). They swam toward it, ate it, and formed a travelling band. We measured the shape of this band at four different starting densities.</p>
-            <p>At LOW density the band is narrow and sharp. At HIGH and EXT density the band is much wider and flatter. The band still moves at roughly the same speed in all cases (~0.28 mm/min), but its shape is very different. This is the key observation we need our model to explain.</p>
-          </div>
-        </div>
-
-        <div class="result-block result-block-flip">
-          <div class="result-fig">
-            <img src="fig2_ks_overlay.png" alt="Original KS model overlay on data">
-          </div>
-          <div class="result-text">
-            <p class="result-label">Result 2 — Original model</p>
-            <h3>The standard model works at low density but gets it wrong at high density</h3>
-            <p>The Keller-Segel model describes how bacteria spread out randomly and also move toward food. We fitted it to the LOW density data and it matched well. But when we used the same settings for HIGH and EXT density, the model predicted a narrow sharp band — not the wide flat one we actually see.</p>
-            <p>The model is too aggressive: it assumes bacteria always chase the food gradient just as hard, no matter how crowded they are. The data show that is not true.</p>
-            <div class="result-fig-inline">
-              <img src="fig2_ks_roc.png" alt="Rate-of-change diagnostic">
-              <p class="fig-caption">This check compares what the model predicts should be happening to what is actually measured. At HIGH and EXT density the model is far too large — confirming it over-drives the chemotaxis.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="result-block">
-          <div class="result-fig">
-            <img src="fig3_comparison.png" alt="Modified KS model comparison">
-          </div>
-          <div class="result-text">
-            <p class="result-label">Result 3 — Fixed model</p>
-            <h3>One small change fixes the model for all four densities</h3>
-            <p>We changed one thing: instead of bacteria always chasing food at the same strength, we let that strength decrease when the bacteria are crowded. When there are lots of bacteria packed together, each one responds less strongly to the food gradient.</p>
-            <p>This single change fixes the model at all four densities at once. The wide flat band at high density is now reproduced, and the narrow sharp band at low density is still correct. One formula, four density groups, all matching.</p>
-            <div class="result-fig-inline">
-              <img src="fig3_modified_ks_roc.png" alt="Rate-of-change diagnostic for modified model">
-              <p class="fig-caption">With the fix applied, the model now matches the measured rate of change at all densities.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="result-block result-block-flip">
-          <div class="result-fig">
-            <img src="fig4_simulation.png" alt="Forward PDE simulation snapshots">
-          </div>
-          <div class="result-text">
-            <p class="result-label">Result 4 — Running the model forward in time</p>
-            <h3>The model correctly predicts how the band moves over time</h3>
-            <p>We took the real measured profiles as a starting point and ran the model forward for five minutes. The bacterial band moved to the right at about 0.28 mm/min — matching the speed seen in the experiment.</p>
-            <p>Behind the band, the food gets eaten up. Ahead of the band, fresh food remains. This is exactly what keeps the band moving: bacteria always have food to chase in front of them and nothing left behind them. The model captures this correctly.</p>
-          </div>
-        </div>
-
-        <div class="result-block">
-          <div class="result-fig">
-            <img src="fig_step5_antibiotic_extension.png" alt="Antibiotic extension">
-          </div>
-          <div class="result-text">
-            <p class="result-label">Result 5 — What happens when antibiotics are added?</p>
-            <h3>Bacteria attracted toward antibiotics get killed — but dense colonies are harder to disrupt</h3>
-            <p>Some bacteria have been shown to swim toward antibiotics rather than away from them. We added this behaviour to our model and placed an antibiotic source ahead of the bacterial band.</p>
-            <p>Below a certain concentration the bacteria barely notice the antibiotic and the band moves normally. Above that level, bacteria at the front swim into the antibiotic zone and get killed. The band slows down and starts to break apart.</p>
-            <p>Interestingly, at high density the bacteria are less attracted to the antibiotic — because crowding already reduces how strongly they respond to any gradient. A dense colony is actually harder to disrupt this way.</p>
-            <div class="result-fig-inline">
-              <img src="step5_antibiotic_animation.gif" alt="Antibiotic disruption animation">
-              <p class="fig-caption">The bacterial band moves right until it hits the antibiotic zone, where bacteria are killed and the band breaks down.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="summary-box">
-          <h3>Summary</h3>
-          <div class="summary-table">
-            <div class="summary-row summary-header">
-              <span>Step</span><span>Key finding</span>
-            </div>
-            <div class="summary-row">
-              <span>1 — Data</span>
-              <span>The bacterial band gets wider and flatter as density increases, but moves at the same speed in all cases.</span>
-            </div>
-            <div class="summary-row">
-              <span>2 — Original model</span>
-              <span>The standard model works at low density but predicts a band that is too narrow and sharp at high density.</span>
-            </div>
-            <div class="summary-row">
-              <span>3 — Fixed model</span>
-              <span>Making bacteria respond less strongly to food when crowded fixes the model for all four densities at once.</span>
-            </div>
-            <div class="summary-row">
-              <span>4 — Simulation</span>
-              <span>Running the fixed model forward in time reproduces the correct band shape and movement speed.</span>
-            </div>
-            <div class="summary-row">
-              <span>5 — Antibiotics</span>
-              <span>When bacteria swim toward antibiotics they get killed and the band breaks down. Dense colonies are harder to disrupt because crowding already reduces their response to any gradient.</span>
-            </div>
           </div>
         </div>
       </section>
 
-      <!-- ── Model overview ─────────────────────────────────────────────── -->
-      <section id="model" class="section">
+      <!-- ── Model overview ──────────────────────────────────────────────── -->
+      <section id="model" class="section intro-section">
         <div class="section-head">
-          <p class="eyebrow">The model</p>
-          <h2>The project in three steps</h2>
+          <p class="eyebrow">Why this model matters</p>
+          <h2>The project in one picture</h2>
         </div>
-        <div class="card-row">
-          <div class="card">
-            <span class="card-num">01</span>
-            <h3>Original Keller-Segel</h3>
+        <div class="story-grid">
+          <article class="story-card">
+            <h3>1. Original Keller-Segel</h3>
             <p>Bacteria are treated as a density field. They diffuse randomly but also move up chemical gradients they perceive as beneficial.</p>
-          </div>
-          <div class="card">
-            <span class="card-num">02</span>
-            <h3>Phan et al. correction</h3>
-            <p>We used the Phan et al. dataset to test where the original model breaks down at high density and introduced a density-dependent fix.</p>
-          </div>
-          <div class="card">
-            <span class="card-num">03</span>
-            <h3>Our extension</h3>
+          </article>
+          <article class="story-card">
+            <h3>2. Phan et al. correction</h3>
+            <p>We used the Phan et al. dataset to validate the model and test where the original Keller-Segel description breaks down at high density.</p>
+          </article>
+          <article class="story-card">
+            <h3>3. Our extension</h3>
             <p>We add an antibiotic field and ask what happens when bacteria experience both food attraction and a harmful but attractive signal.</p>
-          </div>
+          </article>
         </div>
+      </section>
 
-        <div class="section-head" style="margin-top:48px;">
+      <section class="section equation-section">
+        <div class="section-head">
           <p class="eyebrow">Equation breakdown</p>
           <h2>Each term has a biological meaning</h2>
         </div>
-        <div class="card-row card-row-4">
-          <div class="card">
+        <div class="equation-grid">
+          <article class="term-card">
             <h3>Random spreading</h3>
-            <code>D<sub>b</sub>∇²B</code>
+            <p><code>D<sub>b</sub>∇²B</code></p>
             <p>Even without signals, bacteria wander. This smooths out sharp peaks.</p>
-          </div>
-          <div class="card">
+          </article>
+          <article class="term-card">
             <h3>Food attraction</h3>
-            <code>−∇·(χ<sub>A</sub>B∇Φ<sub>A</sub>)</code>
-            <p>Bacteria drift toward richer food regions, concentrating the population.</p>
-          </div>
-          <div class="card">
+            <p><code>-∇·(χ<sub>A</sub>B∇Φ<sub>A</sub>)</code></p>
+            <p>Bacteria drift toward richer food regions, which can concentrate the population.</p>
+          </article>
+          <article class="term-card">
             <h3>Antibiotic attraction</h3>
-            <code>−∇·(χ<sub>C</sub>B∇Φ<sub>C</sub>)</code>
-            <p>Our extension: what if bacteria also move toward a harmful signal?</p>
-          </div>
-          <div class="card">
+            <p><code>-∇·(χ<sub>C</sub>B∇Φ<sub>C</sub>)</code></p>
+            <p>Our extension asks what if bacteria also move toward a harmful signal.</p>
+          </article>
+          <article class="term-card">
             <h3>Birth and death</h3>
-            <code>+αB − μ(C)B</code>
-            <p>Growth adds cells. High antibiotic raises the death rate and destroys clusters.</p>
-          </div>
+            <p><code>+ αB - μ(C)B</code></p>
+            <p>Growth adds cells. High antibiotic raises the death rate and can destroy clusters.</p>
+          </article>
         </div>
       </section>
 
       <!-- ── Workflow ────────────────────────────────────────────────────── -->
-      <section id="steps" class="section">
+      <section id="steps" class="section steps-section">
         <div class="section-head">
           <p class="eyebrow">Project workflow</p>
           <h2>How the whole project fits together</h2>
         </div>
         <div class="timeline">
-          <div class="timeline-card">
-            <span class="step-pill">Step 1</span>
+          <article class="timeline-card">
+            <span class="step-no">Step 1</span>
             <h3>Visualise the dataset</h3>
             <p>Load bacterial and aspartate profiles from the Phan et al. processed data.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="step-pill">Step 2</span>
+          </article>
+          <article class="timeline-card">
+            <span class="step-no">Step 2</span>
             <h3>Test the original KS model</h3>
             <p>Evaluate how well the standard chemotaxis equations explain the measured profiles.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="step-pill">Step 3</span>
+          </article>
+          <article class="timeline-card">
+            <span class="step-no">Step 3</span>
             <h3>Add density dependence</h3>
             <p>Let chemotaxis weaken at high density, following Phan et al.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="step-pill">Step 4</span>
+          </article>
+          <article class="timeline-card">
+            <span class="step-no">Step 4</span>
             <h3>Forward simulation</h3>
             <p>Run the corrected PDE model and compare the evolving wave to experiment.</p>
-          </div>
-          <div class="timeline-card timeline-card-highlight">
-            <span class="step-pill">Step 5</span>
+          </article>
+          <article class="timeline-card highlight">
+            <span class="step-no">Step 5</span>
             <h3>Antibiotic extension</h3>
             <p>Introduce a second signal field so food attraction competes with antibiotic-driven mortality.</p>
-          </div>
+          </article>
         </div>
+      </section>
 
-        <div class="media-row">
-          <img src="step5_2d_chemotaxis.gif" alt="2D chemotaxis animation">
-          <div class="media-text">
-            <p>The animation shows the Step 5 particle-field model. Food is shown in green, antibiotic in purple, and bacteria as moving dots.</p>
-            <p>The interactive lab below lets you tune food attraction, antibiotic attraction, and death rate live in the browser.</p>
+      <section class="section media-section">
+        <div class="section-head">
+          <p class="eyebrow">Existing simulation asset</p>
+          <h2>KS-based particle-field animation</h2>
+        </div>
+        <div class="media-grid">
+          <div class="media-frame">
+            <img src="step5_2d_chemotaxis.gif" alt="2D chemotaxis animation with bacteria, food, and antibiotic">
+          </div>
+          <div class="media-copy">
+            <p>The animation on the left comes from the Step 5 particle-field model. Food is shown in green, antibiotic in purple, and bacteria as moving dots.</p>
+            <p>The website below adds an interactive browser-based playground so we can tune the strengths of food attraction, antibiotic attraction, and antibiotic death live.</p>
           </div>
         </div>
       </section>
 
-      <!-- ── Interactive lab ────────────────────────────────────────────── -->
-      <section id="lab" class="section">
+
+
+      <!-- ── Interactive lab ─────────────────────────────────────────────── -->
+      <section id="lab" class="section lab-section">
         <div class="section-head">
           <p class="eyebrow">Interactive lab</p>
           <h2>Play with the chemotaxis system in the browser</h2>
@@ -476,35 +469,45 @@
               <input id="particleCount" type="range" min="80" max="420" step="10" value="220">
             </div>
             <div class="button-row">
-              <button id="resetButton" class="btn">Reset</button>
-              <button id="pauseButton" class="btn btn-outline">Pause</button>
+              <button id="resetButton" class="button primary">Reset Simulation</button>
+              <button id="pauseButton" class="button primary">Pause</button>
             </div>
             <div class="formula-note">
-              <p>Particles follow random walk plus chemotactic drift from food and antibiotic gradients.</p>
+              <h3>Browser model</h3>
+              <p>Particles follow random walk plus chemotactic drift from <code>χ<sub>A</sub>∇Φ<sub>A</sub></code> and <code>χ<sub>C</sub>∇Φ<sub>C</sub></code>.</p>
             </div>
           </aside>
           <div class="canvas-wrap">
             <canvas id="chemotaxisCanvas" width="900" height="580"></canvas>
             <div class="canvas-overlay">
-              <div class="overlay-pill"><span>Food</span> green glow</div>
-              <div class="overlay-pill"><span>Antibiotic</span> purple glow</div>
-              <div class="overlay-pill"><span>MIC</span> white contour</div>
+              <div class="overlay-card">
+                <span>Food field</span>
+                <strong>green glow</strong>
+              </div>
+              <div class="overlay-card">
+                <span>Antibiotic field</span>
+                <strong>purple glow</strong>
+              </div>
+              <div class="overlay-card">
+                <span>MIC</span>
+                <strong>white contour</strong>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- ── Game ───────────────────────────────────────────────────────── -->
-      <section id="game" class="section">
+      <section id="game" class="section game-section">
         <div class="section-head">
-          <p class="eyebrow">Mini-game</p>
+          <p class="eyebrow">Interactive mini-game</p>
           <h2>Bacteria chemotaxis game</h2>
         </div>
         <div class="game-layout">
           <div class="game-copy">
-            <p>Click inside the canvas to drop food. Bacteria first wander randomly, then bias their motion toward the food source.</p>
+            <p>Click inside the canvas to drop food. The bacteria first wander randomly, then begin to bias their motion toward the food source.</p>
             <p>It reflects three core KS ideas: diffusion, delayed gradient sensing, and density-dependent sensitivity.</p>
-            <div class="control-group" style="margin-top:20px;">
+            <div class="control-group compact">
               <label for="density">Density <span id="densityValue">25</span></label>
               <input type="range" id="density" min="5" max="80" value="25">
             </div>
