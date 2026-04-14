@@ -503,57 +503,6 @@
         </div>
       </section>
 
-      <!-- ── Model overview ──────────────────────────────────────────────── -->
-      <section id="model" class="section intro-section">
-        <div class="section-head">
-          <p class="eyebrow">Why this model matters</p>
-          <h2>The project in one picture</h2>
-        </div>
-        <div class="story-grid">
-          <article class="story-card">
-            <h3>1. Original Keller-Segel</h3>
-            <p>Bacteria are treated as a density field. They diffuse randomly but also move up chemical gradients they perceive as beneficial.</p>
-          </article>
-          <article class="story-card">
-            <h3>2. Phan et al. correction</h3>
-            <p>We used the Phan et al. dataset to validate the model and test where the original Keller-Segel description breaks down at high density.</p>
-          </article>
-          <article class="story-card">
-            <h3>3. Our extension</h3>
-            <p>We add an antibiotic field and ask what happens when bacteria experience both food attraction and a harmful but attractive signal.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section equation-section">
-        <div class="section-head">
-          <p class="eyebrow">Equation breakdown</p>
-          <h2>Each term has a biological meaning</h2>
-        </div>
-        <div class="equation-grid">
-          <article class="term-card">
-            <h3>Random spreading</h3>
-            <p><code>D<sub>b</sub>∇²B</code></p>
-            <p>Even without signals, bacteria wander. This smooths out sharp peaks.</p>
-          </article>
-          <article class="term-card">
-            <h3>Food attraction</h3>
-            <p><code>-∇·(χ<sub>A</sub>B∇Φ<sub>A</sub>)</code></p>
-            <p>Bacteria drift toward richer food regions, which can concentrate the population.</p>
-          </article>
-          <article class="term-card">
-            <h3>Antibiotic attraction</h3>
-            <p><code>-∇·(χ<sub>C</sub>B∇Φ<sub>C</sub>)</code></p>
-            <p>Our extension asks what if bacteria also move toward a harmful signal.</p>
-          </article>
-          <article class="term-card">
-            <h3>Birth and death</h3>
-            <p><code>+ αB - μ(C)B</code></p>
-            <p>Growth adds cells. High antibiotic raises the death rate and can destroy clusters.</p>
-          </article>
-        </div>
-      </section>
-
       <!-- ── Workflow ────────────────────────────────────────────────────── -->
       <section id="steps" class="section steps-section">
         <div class="section-head">
