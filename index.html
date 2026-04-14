@@ -298,7 +298,62 @@
                   <p>Running full time-dependent simulations of the modified model, initialised from LOW-density experimental profiles, reproduced the travelling chemotactic band. Bacteria that were initially broadly distributed aggregated into a moving peak that shifted roughly 2 mm along the z-axis over nine minutes. Behind the band, aspartate was progressively depleted, while a steep gradient was maintained ahead of it. This is a self-generated gradient: the bacteria are not just following a pre-existing chemical field, they are actively shaping it by consuming attractant locally, which sustains the directional bias driving forward motion. Band width and speed were consistent with experimental observations.</p>
                 </div>
               </div>
-
+                <!-- ── Interactive lab ─────────────────────────────────────────────── -->
+              <section id="lab" class="section lab-section">
+                <div class="section-head">
+                  <p class="eyebrow">Interactive lab</p>
+                  <h2>Play with the chemotaxis system in the browser</h2>
+                </div>
+                <div class="lab-layout">
+                  <aside class="control-panel">
+                    <div class="control-group">
+                      <label for="foodStrength">Food attraction <span id="foodStrengthValue">1.00</span></label>
+                      <input id="foodStrength" type="range" min="0" max="2" step="0.05" value="1">
+                    </div>
+                    <div class="control-group">
+                      <label for="antibioticStrength">Antibiotic attraction <span id="antibioticStrengthValue">1.00</span></label>
+                      <input id="antibioticStrength" type="range" min="0" max="2" step="0.05" value="1">
+                    </div>
+                    <div class="control-group">
+                      <label for="deathStrength">Antibiotic death <span id="deathStrengthValue">1.00</span></label>
+                      <input id="deathStrength" type="range" min="0" max="2" step="0.05" value="1">
+                    </div>
+                    <div class="control-group">
+                      <label for="micLevel">MIC contour <span id="micLevelValue">0.70</span></label>
+                      <input id="micLevel" type="range" min="0.2" max="1.5" step="0.05" value="0.7">
+                    </div>
+                    <div class="control-group">
+                      <label for="particleCount">Initial bacteria <span id="particleCountValue">220</span></label>
+                      <input id="particleCount" type="range" min="80" max="420" step="10" value="220">
+                    </div>
+                    <div class="button-row">
+                      <button id="resetButton" class="button primary">Reset Simulation</button>
+                      <button id="pauseButton" class="button primary">Pause</button>
+                    </div>
+                    <div class="formula-note">
+                      <h3>Browser model</h3>
+                      <p>Particles follow random walk plus chemotactic drift from <code>χ<sub>A</sub>∇Φ<sub>A</sub></code> and <code>χ<sub>C</sub>∇Φ<sub>C</sub></code>.</p>
+                    </div>
+                  </aside>
+                  <div class="canvas-wrap">
+                    <canvas id="chemotaxisCanvas" width="900" height="580"></canvas>
+                    <div class="canvas-overlay">
+                      <div class="overlay-card">
+                        <span>Food field</span>
+                        <strong>green glow</strong>
+                      </div>
+                      <div class="overlay-card">
+                        <span>Antibiotic field</span>
+                        <strong>purple glow</strong>
+                      </div>
+                      <div class="overlay-card">
+                        <span>MIC</span>
+                        <strong>white contour</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
               <div class="result-block-stacked">
                 <div class="result-fig">
                   <img src="fig_step5_antibiotic_extension.png" alt="Antibiotic extension introduces competing chemotactic signals">
@@ -499,65 +554,6 @@
           <div class="media-copy">
             <p>The animation on the left comes from the Step 5 particle-field model. Food is shown in green, antibiotic in purple, and bacteria as moving dots.</p>
             <p>The website below adds an interactive browser-based playground so we can tune the strengths of food attraction, antibiotic attraction, and antibiotic death live.</p>
-          </div>
-        </div>
-      </section>
-
-
-
-      <!-- ── Interactive lab ─────────────────────────────────────────────── -->
-      <section id="lab" class="section lab-section">
-        <div class="section-head">
-          <p class="eyebrow">Interactive lab</p>
-          <h2>Play with the chemotaxis system in the browser</h2>
-        </div>
-        <div class="lab-layout">
-          <aside class="control-panel">
-            <div class="control-group">
-              <label for="foodStrength">Food attraction <span id="foodStrengthValue">1.00</span></label>
-              <input id="foodStrength" type="range" min="0" max="2" step="0.05" value="1">
-            </div>
-            <div class="control-group">
-              <label for="antibioticStrength">Antibiotic attraction <span id="antibioticStrengthValue">1.00</span></label>
-              <input id="antibioticStrength" type="range" min="0" max="2" step="0.05" value="1">
-            </div>
-            <div class="control-group">
-              <label for="deathStrength">Antibiotic death <span id="deathStrengthValue">1.00</span></label>
-              <input id="deathStrength" type="range" min="0" max="2" step="0.05" value="1">
-            </div>
-            <div class="control-group">
-              <label for="micLevel">MIC contour <span id="micLevelValue">0.70</span></label>
-              <input id="micLevel" type="range" min="0.2" max="1.5" step="0.05" value="0.7">
-            </div>
-            <div class="control-group">
-              <label for="particleCount">Initial bacteria <span id="particleCountValue">220</span></label>
-              <input id="particleCount" type="range" min="80" max="420" step="10" value="220">
-            </div>
-            <div class="button-row">
-              <button id="resetButton" class="button primary">Reset Simulation</button>
-              <button id="pauseButton" class="button primary">Pause</button>
-            </div>
-            <div class="formula-note">
-              <h3>Browser model</h3>
-              <p>Particles follow random walk plus chemotactic drift from <code>χ<sub>A</sub>∇Φ<sub>A</sub></code> and <code>χ<sub>C</sub>∇Φ<sub>C</sub></code>.</p>
-            </div>
-          </aside>
-          <div class="canvas-wrap">
-            <canvas id="chemotaxisCanvas" width="900" height="580"></canvas>
-            <div class="canvas-overlay">
-              <div class="overlay-card">
-                <span>Food field</span>
-                <strong>green glow</strong>
-              </div>
-              <div class="overlay-card">
-                <span>Antibiotic field</span>
-                <strong>purple glow</strong>
-              </div>
-              <div class="overlay-card">
-                <span>MIC</span>
-                <strong>white contour</strong>
-              </div>
-            </div>
           </div>
         </div>
       </section>
