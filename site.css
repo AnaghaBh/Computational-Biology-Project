@@ -523,6 +523,29 @@ button.ghost {
   direction: ltr;
 }
 
+/* Stacked layout: figure on top, text below */
+.result-block-stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--line);
+}
+
+.result-block-stacked:last-of-type {
+  border-bottom: none;
+  margin-bottom: 40px;
+}
+
+.result-block-stacked .result-fig img {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(13, 27, 42, 0.08);
+  box-shadow: var(--shadow);
+}
+
 .result-fig img {
   display: block;
   width: 100%;
