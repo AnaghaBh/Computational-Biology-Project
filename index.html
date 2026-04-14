@@ -60,6 +60,7 @@
             <a href="#model">Model</a>
             <a href="#report-methods">Methods</a>
             <a href="#report-results">Results</a>
+            <a href="#lab">Interactive Lab</a>
             <a href="#report-discussion">Discussion</a>
             <a href="#refs">References</a>
           </div>
@@ -335,68 +336,56 @@
               </div>
 
             </article>
-             <!-- ── Interactive lab ─────────────────────────────────────────────── -->
-              <section id="lab" class="section lab-section">
-                <div class="section-head">
-                  <p class="eyebrow">Interactive lab</p>
-                  <h2>Play with the chemotaxis system in the browser</h2>
-                </div>
-                <div class="lab-layout">
-                  <aside class="control-panel">
-                    <div class="control-group">
-                      <label for="foodStrength">Food attraction <span id="foodStrengthValue">1.00</span></label>
-                      <input id="foodStrength" type="range" min="0" max="2" step="0.05" value="1">
-                    </div>
-                    <div class="control-group">
-                      <label for="antibioticStrength">Antibiotic attraction <span id="antibioticStrengthValue">1.00</span></label>
-                      <input id="antibioticStrength" type="range" min="0" max="2" step="0.05" value="1">
-                    </div>
-                    <div class="control-group">
-                      <label for="deathStrength">Antibiotic death <span id="deathStrengthValue">1.00</span></label>
-                      <input id="deathStrength" type="range" min="0" max="2" step="0.05" value="1">
-                    </div>
-                    <div class="control-group">
-                      <label for="micLevel">MIC contour <span id="micLevelValue">0.70</span></label>
-                      <input id="micLevel" type="range" min="0.2" max="1.5" step="0.05" value="0.7">
-                    </div>
-                    <div class="control-group">
-                      <label for="particleCount">Initial bacteria <span id="particleCountValue">220</span></label>
-                      <input id="particleCount" type="range" min="80" max="420" step="10" value="220">
-                    </div>
-                    <div class="button-row">
-                      <button id="resetButton" class="button primary">Reset Simulation</button>
-                      <button id="pauseButton" class="button primary">Pause</button>
-                    </div>
-                  </aside>
-                  <div class="formula-note">
-                      <h3>Simulation Model</h3>
-                      <p>We developed an interactive, browser-based simulation that allows real-time variation of key parameters, including food attraction (χ_f), antibiotic attraction (χ_a), antibiotic-induced death rate, MIC threshold, and initial bacterial density (model).
-                      <p>Across simulations, three distinct regimes emerged depending on the relative strength of attraction and toxicity.</p>
-                      <p>At low antibiotic attraction and/or high death rates, bacterial populations remained confined to nutrient-rich regions. Cells aggregated into stable clusters around food sources, with minimal penetration into antibiotic zones. The MIC contour acted as a soft exclusion boundary, beyond which population density remained negligible.</p>
-                      <p>At intermediate parameter values, bacteria were drawn toward antibiotic regions but accumulated at the MIC boundary. This produced ring-like high-density structures at the edge of toxic zones, indicating a balance between chemotactic drift and antibiotic-induced mortality. These boundary-localised populations were dynamically stable over short timescales.</p>
-                      <p>When antibiotic attraction dominated over death rate, bacterial populations crossed the MIC threshold and migrated into high-antibiotic regions. This resulted in rapid population collapse, consistent with the suicidal chemotaxis dynamics observed in the continuum model (Fig. 5). Even modest increases in χ_a were sufficient to trigger this transition, highlighting the sensitivity of collective behaviour to competing gradients.</p>
-                      <p>In addition, increasing the initial population size enhanced aggregation strength and accelerated migration toward both nutrient and antibiotic sources. However, higher densities also amplified effective exposure to antibiotics near the MIC boundary, leading to sharper population declines in collapse regimes. 
-                      </p>
-                    </div>
-                  <div class="canvas-wrap">
-                    <canvas id="chemotaxisCanvas" width="900" height="580"></canvas>
-                    <div class="canvas-overlay">
-                      <div class="overlay-card">
-                        <span>Food field</span>
-                        <strong>green glow</strong>
-                      </div>
-                      <div class="overlay-card">
-                        <span>Antibiotic field</span>
-                        <strong>purple glow</strong>
-                      </div>
-                      <div class="overlay-card">
-                        <span>MIC</span>
-                        <strong>white contour</strong>
-                      </div>
-                    </div>
+
+            <article id="lab" class="report-section">
+              <h3>Interactive Lab</h3>
+              <p>Use the sliders to tune food attraction, antibiotic attraction, death rate, MIC threshold, and initial bacterial density live. The canvas updates in real time.</p>
+              <div class="lab-layout" style="margin-top:20px;">
+                <aside class="control-panel">
+                  <div class="control-group">
+                    <label for="foodStrength">Food attraction <span id="foodStrengthValue">1.00</span></label>
+                    <input id="foodStrength" type="range" min="0" max="2" step="0.05" value="1">
+                  </div>
+                  <div class="control-group">
+                    <label for="antibioticStrength">Antibiotic attraction <span id="antibioticStrengthValue">1.00</span></label>
+                    <input id="antibioticStrength" type="range" min="0" max="2" step="0.05" value="1">
+                  </div>
+                  <div class="control-group">
+                    <label for="deathStrength">Antibiotic death <span id="deathStrengthValue">1.00</span></label>
+                    <input id="deathStrength" type="range" min="0" max="2" step="0.05" value="1">
+                  </div>
+                  <div class="control-group">
+                    <label for="micLevel">MIC contour <span id="micLevelValue">0.70</span></label>
+                    <input id="micLevel" type="range" min="0.2" max="1.5" step="0.05" value="0.7">
+                  </div>
+                  <div class="control-group">
+                    <label for="particleCount">Initial bacteria <span id="particleCountValue">220</span></label>
+                    <input id="particleCount" type="range" min="80" max="420" step="10" value="220">
+                  </div>
+                  <div class="button-row">
+                    <button id="resetButton" class="button primary">Reset Simulation</button>
+                    <button id="pauseButton" class="button primary">Pause</button>
+                  </div>
+                </aside>
+                <div class="canvas-wrap">
+                  <canvas id="chemotaxisCanvas" width="900" height="580"></canvas>
+                  <div class="canvas-overlay">
+                    <div class="overlay-card"><span>Food field</span><strong>green glow</strong></div>
+                    <div class="overlay-card"><span>Antibiotic field</span><strong>purple glow</strong></div>
+                    <div class="overlay-card"><span>MIC</span><strong>white contour</strong></div>
                   </div>
                 </div>
-              </section>
+              </div>
+              <div class="formula-note">
+                <h3>Simulation Model</h3>
+                <p>We developed an interactive, browser-based simulation that allows real-time variation of key parameters, including food attraction (χ_f), antibiotic attraction (χ_a), antibiotic-induced death rate, MIC threshold, and initial bacterial density.</p>
+                <p>Across simulations, three distinct regimes emerged depending on the relative strength of attraction and toxicity.</p>
+                <p>At low antibiotic attraction and/or high death rates, bacterial populations remained confined to nutrient-rich regions. Cells aggregated into stable clusters around food sources, with minimal penetration into antibiotic zones. The MIC contour acted as a soft exclusion boundary, beyond which population density remained negligible.</p>
+                <p>At intermediate parameter values, bacteria were drawn toward antibiotic regions but accumulated at the MIC boundary. This produced ring-like high-density structures at the edge of toxic zones, indicating a balance between chemotactic drift and antibiotic-induced mortality.</p>
+                <p>When antibiotic attraction dominated over death rate, bacterial populations crossed the MIC threshold and migrated into high-antibiotic regions. This resulted in rapid population collapse, consistent with the suicidal chemotaxis dynamics observed in the continuum model (Fig. 5).</p>
+                <p>In addition, increasing the initial population size enhanced aggregation strength and accelerated migration toward both nutrient and antibiotic sources. However, higher densities also amplified effective exposure to antibiotics near the MIC boundary, leading to sharper population declines in collapse regimes.</p>
+              </div>
+            </article>
 
             <article id="report-discussion" class="report-section">
               <h3>Discussion</h3>
